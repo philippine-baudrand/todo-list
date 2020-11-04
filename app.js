@@ -5,27 +5,27 @@ var app = {
       {
           text: 'Corriger CV',
           done: false,
-          favorite: true
+
       },
       {
           text: 'Faire les minimum 80 % Opquast',
           done: false,
-          favorite: true
+
       },
       {
           text: 'Terminer formation API',
           done: false,
-          favorite: true
+
       },
       {
           text: 'Publier projet Todo List GitHub en public',
           done: false,
-          favorite: true
+
       },
       {
           text: 'Refaire challenge react converter',
           done: false,
-          favorite: true
+
       }
   ],
  
@@ -67,14 +67,14 @@ var app = {
         app.todosList.push({
             text: text,
             done: false,
-            favorite: false
+            
         });
         app.init();
         app.input.value = '';
         app.updateCounter();
     },
     generateItem: (objectTodo) => {
-        const { text: todoText, done, favorite } = objectTodo;
+        const { text: todoText, done } = objectTodo;
         const item = document.createElement('li');
         item.className = done ? 'todo todo--done' : 'todo';
         const check = document.createElement('input');
@@ -87,35 +87,28 @@ var app = {
         const text = document.createElement('span');
         text.className ='todo-text';
         text.textContent = todoText;
-        const isFavoris = document.createElement('span');
-        isFavoris.className = 'favorite';
-        isFavoris.textContent = "favori: " + favorite;
-        isFavoris.addEventListener('click', () => {
-            objectTodo.favorite = !favorite;
-            app.init();
-        })
         item.appendChild(check);
         item.appendChild(text);
-        item.appendChild(isFavoris);
         app.list.appendChild(item);
+  
     },
     updateCounter: () => {
         const total = app.todosList.filter(todo => !todo.done).length;
         console.log(total);
         let message;
         switch (total) {
-            case 0:
-                message = "0 tâche en cours";
-                break;
-            case 1:
-                message = "1 tâche en cours";
-                break;
-            default:
-                message = total + " tâches en cours"
-                break;
+          case 0:
+            message = "0 tâche en cours";
+            break;
+          case 1:
+            message = "1 tâche en cours"
+            break;
+          default:
+            message = total + " tâches en cours"
+            break;
         }
-        app.updateCounter.textContent = message;
-    }
-};
+        app.counter.textContent = message;
+      }
+    };
 
 document.addEventListener('DOMContentLoaded', app.init);
