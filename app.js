@@ -1,4 +1,6 @@
+// je crée ma variable app
 var app = {
+// dans mon tableau todoList j'écris mes tasks    
   todoList: [
       {
           text: 'Corriger CV',
@@ -25,5 +27,13 @@ var app = {
           done: false,
           favorite: true
       }
-  ]  
+  ],
+ 
+  init: function () {
+      app.todo = document.getElementsByClassName('todo');
+      app.todo.innerHTML = '';
+      app.createForm();
+      app.createCount();
+      app.createList();
+  }
 }
