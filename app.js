@@ -50,7 +50,7 @@ var app = {
       app.counter = document.createElement('div');
       app.counter.id = 'todo-counter';
       app.updateCounter();
-      app.todo.appenChild(app.counter);
+      app.todo.appendChild(app.counter);
   },
   createList: () => {
       app.list = document.createElement('ul');
@@ -58,7 +58,7 @@ var app = {
       app.todosList.forEach((todoObject) => {
       app.generateItem(todoObject);      
       });
-      app.todo.appenChild(app.list);
+      app.todo.appendChild(app.list);
     },
     addItem: (evt) => {
         evt.preventDefault();
@@ -97,7 +97,7 @@ var app = {
         item.appendChild(check);
         item.appendChild(text);
         item.appendChild(isFavoris);
-        app.list.appenChild(item);
+        app.list.appendChild(item);
     },
     updateCounter: () => {
         const total = app.todosList.filter(todo => !todo.done).length;
