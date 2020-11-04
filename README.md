@@ -7,4 +7,5 @@ Création d'une Todo List avec une interface JavaScript
 
 * On doit pouvoir cocher une tâche pour la marquer comme effectuée.
 
-* Un compteur recense les tâches non effectuées.
+* Un compteur recense les tâches non effectuées
+  
