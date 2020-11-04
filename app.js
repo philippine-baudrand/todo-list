@@ -35,5 +35,16 @@ var app = {
       app.createForm();
       app.createCount();
       app.createList();
+  },
+  createForm: () => {
+      const form = document.createElement('form');
+      const input = document.createElement('input');
+      app.input = input;
+      input.id = 'todo-input';
+      input.placeholder = "Ajouter une tâche";
+      form.addEventListener('submit', app.addItem);
+      form.appendChild(input);
+      app.todo.appendChild(form);
   }
-}
+};
+console.log('test');
